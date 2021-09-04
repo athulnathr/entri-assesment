@@ -1,8 +1,13 @@
 import React from "react";
-import News from "./Pages/News";
-
+import Pages from "./Pages";
+import { Provider } from "react-redux";
+import store from "./store";
 const App = () => {
-  return <News />;
+  return (
+    <Provider store={store}>
+      <Pages />
+    </Provider>
+  );
 };
 
 export default App;
