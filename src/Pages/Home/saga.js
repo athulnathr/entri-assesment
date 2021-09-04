@@ -15,15 +15,12 @@ function fetchNews() {
         q: "tech",
       },
     });
-    // return { data: "null" };
   };
 }
 
 function* fetchNewsDataWorker() {
   try {
-    console.log("the try");
     const response = yield call(fetchNews());
-    console.log(response, "response");
     yield put(resolveNews(response?.data));
   } catch (error) {
     yield put(rejectNews(error?.message));

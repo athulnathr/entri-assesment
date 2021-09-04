@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { requestNews } from "./slice";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { newsSelector, requestNews } from "./slice";
+import SingleFeed from "./SingleFeed";
 
 const News = () => {
   const dispatch = useDispatch();
+  const { loading, data } = useSelector(newsSelector);
   useEffect(() => {
     dispatch(requestNews());
   }, []);
-
-  const [count, setCount] = useState(0);
   return (
     <div className="main">
-      <h4> Sniper tests rerender test again S{count}</h4>
-      <button onClick={() => setCount(count + 1)}> count test</button>
+      <h4> Sniper tests rerender test again </h4>
+      {data?.articles?.map((item, i) => (
+        <SingleFeed key={`SingleFeed_${i}`} article={item} />
+      ))}
     </div>
   );
 };
