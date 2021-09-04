@@ -1,6 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { requestNews } from "./slice";
 
 const News = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(requestNews());
+  }, []);
+
   const [count, setCount] = useState(0);
   return (
     <div className="main">

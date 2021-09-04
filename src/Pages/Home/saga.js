@@ -1,9 +1,20 @@
 import { call, put, takeEvery } from "redux-saga/effects";
-import { rejectNews, requestNews, resolveNews } from "./slice";
+import { newsSelector, rejectNews, requestNews, resolveNews } from "./slice";
+import { NEWS_API_KEY, NEWS_ENPOINT } from "../../constants/api";
+
+import axios from "axios";
 
 function fetchNews() {
   return () => {
-    console.log("fetchNews Called");
+    return axios.get(NEWS_ENPOINT, {
+      params: {
+        page: 1,
+        sortBy: "publishedAt",
+        pageSize: 30,
+        apiKey: NEWS_API_KEY,
+        q: "tech",
+      },
+    });
     // return { data: "null" };
   };
 }
@@ -12,6 +23,7 @@ function* fetchNewsDataWorker() {
   try {
     console.log("the try");
     const response = yield call(fetchNews());
+    console.log(response, "response");
     yield put(resolveNews(response?.data));
   } catch (error) {
     yield put(rejectNews(error?.message));
