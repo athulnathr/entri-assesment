@@ -4,7 +4,7 @@ import filterReducer from "./filters/slice";
 
 const allReducers = combineReducers({
   home: homeReducer,
-  filter: filterReducer,
+  filters: filterReducer,
 });
 
 export default allReducers;
