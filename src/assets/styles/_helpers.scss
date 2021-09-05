@@ -41,3 +41,12 @@
     animation: 1.5s loading-placeholder ease-in-out infinite;
   }
 }
+@keyframes loading-placeholder {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}

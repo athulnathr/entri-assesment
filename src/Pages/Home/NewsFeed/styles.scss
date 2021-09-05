@@ -24,6 +24,12 @@
       margin: 0.25rem 0;
       font-size: 16px;
       font-weight: 600;
+      color: #000;
+      text-decoration: none;
+      transition: all ease 0.5s;
+      &:hover {
+        color: #1596e3;
+      }
     }
     .excerpt {
       margin: 0;
@@ -40,5 +46,11 @@
   .diff {
     color: #1596e3;
     font-weight: normal;
+  }
+  .author {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 80%;
+    overflow: hidden;
   }
 }

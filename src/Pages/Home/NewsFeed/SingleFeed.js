@@ -9,10 +9,19 @@ const SingleFeed = ({ article }) => {
         </div>
         <div className="content p-h">
           <div className="d-flex jsb ac bottom-detail mb-h">
-            <p className="author">{article?.author || "Unknown"}</p>
+            <p className="author" title={article?.author}>
+              {article?.author || "Unknown"}
+            </p>
             <p className="diff">{humanDiffDate(article?.publishedAt)}</p>
           </div>
-          <h4 className="title">{article?.title}</h4>
+          <a
+            href={article?.url}
+            target="_blank"
+            rel="noreferrer"
+            className="title"
+          >
+            {article?.title}
+          </a>
           <p className="excerpt">{article?.description}</p>
         </div>
       </div>
