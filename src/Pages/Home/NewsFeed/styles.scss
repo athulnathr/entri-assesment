@@ -1,0 +1,44 @@
+.single-feed {
+  border: 1px solid #efefef;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1 auto;
+  .image-holder {
+    max-height: 260px;
+    min-height: 200px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.35);
+    img {
+      width: 100%;
+      display: block;
+      background: #fff;
+    }
+  }
+  .content {
+    .title {
+      margin: 0.25rem 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .excerpt {
+      margin: 0;
+      text-indent: 1rem;
+    }
+  }
+  .author,
+  .diff {
+    margin-top: 0.25rem;
+    margin-bottom: 0;
+    font-weight: bold;
+    font-size: 11px;
+  }
+  .diff {
+    color: #1596e3;
+    font-weight: normal;
+  }
+}
