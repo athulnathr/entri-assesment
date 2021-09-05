@@ -27,7 +27,7 @@ const newsSlice = createSlice({
   },
 });
 
-export const newsSelector = (state) => state.news;
+export const newsSelector = (state) => state.home.news;
 
 export const { requestNews, resolveNews, rejectNews } = newsSlice.actions;
 

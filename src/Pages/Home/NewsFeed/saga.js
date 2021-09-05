@@ -1,5 +1,5 @@
 import { call, put, takeEvery } from "redux-saga/effects";
-import { newsSelector, rejectNews, requestNews, resolveNews } from "./slice";
+import { rejectNews, requestNews, resolveNews } from "./slice";
 import { NEWS_API_KEY, NEWS_ENPOINT } from "../../../constants/api";
 
 import axios from "axios";
