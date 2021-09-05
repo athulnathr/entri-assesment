@@ -1,6 +1,6 @@
 import React from "react";
 
-const LoadingUI = () => {
+export const LoadingUI = () => {
   return [...new Array(12)].map((_, i) => (
     <div className="col-sm-6 col-lg-3 col-xs-12" key={`SingleFeedLoading_${i}`}>
       <div className="single-feed">
@@ -48,4 +48,14 @@ const LoadingUI = () => {
   ));
 };
 
-export default LoadingUI;
+export const ErrorUI = ({ retry }) => {
+  return (
+    <div className="feed-error">
+      <span class="material-icons error">error</span>
+      <h4>Uh Oh!!. Some Error Occured</h4>
+      <button className="retry" onClick={() => retry()}>
+        Retry <span class="material-icons">autorenew</span>
+      </button>
+    </div>
+  );
+};

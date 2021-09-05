@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import { batch, useDispatch, useSelector } from "react-redux";
 import { newsSelector, requestNews, setPage } from "./slice";
 import SingleFeed from "./SingleFeed";
-import LoadingUI from "./LoadingUI";
+import { LoadingUI, ErrorUI } from "./components";
 import "./styles.scss";
 const News = () => {
   const dispatch = useDispatch();
-  const { loading, data, page } = useSelector(newsSelector);
+  const { loading, data, page, error } = useSelector(newsSelector);
   useEffect(() => {
     dispatch(requestNews());
     window.addEventListener("scroll", handleScroll);
@@ -25,13 +25,15 @@ const News = () => {
     }
   }
 
-  return (
+  return !error ? (
     <div className="row">
       {data?.articles?.map((item, i) => (
         <SingleFeed key={`SingleFeed_${i}`} article={item} />
       ))}
       {loading && <LoadingUI />}
     </div>
+  ) : (
+    <ErrorUI retry={() => dispatch(requestNews(1))} />
   );
 };
 
