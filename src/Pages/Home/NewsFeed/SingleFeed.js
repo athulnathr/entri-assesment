@@ -1,7 +1,6 @@
 import React from "react";
 import { humanDiffDate } from "../../../Utils";
 const SingleFeed = ({ article }) => {
-  console.log(article, "article");
   return (
     <div className="col-sm-6 col-lg-3 col-xs-12">
       <div className="single-feed">

@@ -24,11 +24,15 @@ const newsSlice = createSlice({
       state.data = null;
       state.error = action.payload;
     },
+    setPage: (state, action) => {
+      state.page = action.payload;
+    },
   },
 });
 
 export const newsSelector = (state) => state.home.news;
 
-export const { requestNews, resolveNews, rejectNews } = newsSlice.actions;
+export const { requestNews, resolveNews, rejectNews, setPage } =
+  newsSlice.actions;
 
 export default newsSlice.reducer;

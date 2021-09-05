@@ -4,11 +4,11 @@ import { NEWS_API_KEY, NEWS_ENPOINT } from "../../../constants/api";
 
 import axios from "axios";
 
-function fetchNews() {
+function fetchNews(page) {
   return () => {
     return axios.get(NEWS_ENPOINT, {
       params: {
-        page: 1,
+        page: page || 1,
         sortBy: "publishedAt",
         pageSize: 30,
         apiKey: NEWS_API_KEY,
@@ -18,9 +18,9 @@ function fetchNews() {
   };
 }
 
-function* fetchNewsDataWorker() {
+function* fetchNewsDataWorker(action) {
   try {
-    const response = yield call(fetchNews());
+    const response = yield call(fetchNews(action?.payload));
     yield put(resolveNews(response?.data));
   } catch (error) {
     yield put(rejectNews(error?.message));
