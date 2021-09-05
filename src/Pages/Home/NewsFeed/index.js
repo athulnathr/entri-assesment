@@ -14,13 +14,10 @@ const News = () => {
     <div className="container-fluid">
       <h4> Sniper tests rerender test again </h4>
       <div className="row">
-        {loading ? (
-          <LoadingUI />
-        ) : (
-          data?.articles?.map((item, i) => (
-            <SingleFeed key={`SingleFeed_${i}`} article={item} />
-          ))
-        )}
+        {data?.articles?.map((item, i) => (
+          <SingleFeed key={`SingleFeed_${i}`} article={item} />
+        ))}
+        {loading && <LoadingUI />}
       </div>
     </div>
   );
