@@ -1,8 +1,8 @@
 import React from "react";
 
 const LoadingUI = () => {
-  return [...new Array(12)].map(() => (
-    <div className="col-sm-6 col-lg-3 col-xs-12">
+  return [...new Array(12)].map((_, i) => (
+    <div className="col-sm-6 col-lg-3 col-xs-12" key={`SingleFeedLoading_${i}`}>
       <div className="single-feed">
         <div className="image-holder">
           <div
@@ -33,6 +33,7 @@ const LoadingUI = () => {
             {[...new Array(4)]?.map(() => (
               <div
                 className="placeholder"
+                key={Math.random()}
                 style={{
                   width: "100%",
                   height: "0.75rem",
