@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { filterSelector, updateFilter } from "../../store/filters/slice";
 import NewsFeed from "./NewsFeed";
 import Filters from "./NewsFeed/Filters";
-import Weather from "./Weather";
+import Header from "../../components/Header";
 const Home = () => {
   const applied = useSelector(filterSelector);
   const dispatch = useDispatch();
@@ -17,14 +17,13 @@ const Home = () => {
     );
   }, [dispatch]);
   return (
-    <div className="container-fluid">
-      <div className="d-flex jsb ac">
-        <h1> Tech News </h1>
-        <Weather />
+    <>
+      <Header />
+      <div className="container-fluid">
+        <Filters />
+        {applied?.search && <NewsFeed />}
       </div>
-      <Filters />
-      {applied?.search && <NewsFeed />}
-    </div>
+    </>
   );
 };
 
