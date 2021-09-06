@@ -1,8 +1,12 @@
 import { combineReducers } from "redux";
-import newsReducer from "../Pages/Home/reducer";
+import weatherReducer from "../components/Header/Weather/slice";
+import homeReducer from "../Pages/Home/reducer";
+import filterReducer from "./filters/slice";
 
 const allReducers = combineReducers({
-  news: newsReducer,
+  home: homeReducer,
+  weather: weatherReducer,
+  filters: filterReducer,
 });
 
 export default allReducers;

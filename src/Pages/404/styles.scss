@@ -1,0 +1,40 @@
+.not-found {
+  display: flex;
+  height: 100vh;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  .holder {
+    max-width: 500px;
+    background: #fff;
+    padding: 5rem;
+    border-radius: 5px;
+    text-align: center;
+    h1 {
+      margin: 0;
+      font-size: 4rem;
+    }
+    button.retry {
+      display: flex;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      border: 1px solid #1596e3;
+      padding: 0.4rem 0.8rem;
+      border-radius: 5px;
+      transition: all ease 0.5s;
+      cursor: pointer;
+      &:hover {
+        background: #1596e3;
+        color: #fff;
+      }
+      span {
+        margin-left: 1rem;
+      }
+    }
+    // h1,
+    // h4 {
+    //   margin: 0;
+    // }
+  }
+}

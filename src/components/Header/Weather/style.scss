@@ -1,0 +1,31 @@
+.weather {
+  padding: 0.3rem 1rem;
+  border: 2px solid #373adf;
+  background: #fff;
+  border-radius: 5px;
+  display: flex;
+  .details {
+    display: flex;
+    flex-direction: column;
+    flex: 1 auto;
+    align-items: flex-end;
+    justify-content: space-around;
+  }
+  p {
+    margin: 0;
+  }
+  .temp {
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    font-weight: bold;
+  }
+  .retry {
+    border: none;
+    background: none;
+    display: flex;
+    font-weight: bold;
+    color: #373adf;
+    cursor: pointer;
+  }
+}
