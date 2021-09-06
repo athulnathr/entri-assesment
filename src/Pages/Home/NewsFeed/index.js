@@ -7,13 +7,14 @@ import "./styles.scss";
 const News = () => {
   const dispatch = useDispatch();
   const { loading, data, page, error } = useSelector(newsSelector);
+
   useEffect(() => {
     dispatch(requestNews());
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  function handleScroll(e) {
+  function handleScroll() {
     const offset = window.scrollY;
     const body = document.getElementsByTagName("body")[0];
     if (offset > body.scrollHeight * 0.7 && !loading) {

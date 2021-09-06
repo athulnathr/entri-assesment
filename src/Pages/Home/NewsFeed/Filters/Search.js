@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 const Search = () => {
   const dispatch = useDispatch();
   const filters = useSelector(filterSelector);
-  console.log(filters, "filters");
   return (
     <SearchBar
       value={filters?.search}
